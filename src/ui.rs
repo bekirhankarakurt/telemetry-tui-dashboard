@@ -45,7 +45,7 @@ fn titled(title: String) -> Block<'static> {
 /// Draw the whole interface.
 pub fn draw(f: &mut Frame, app: &App) {
     let rows = split(
-        f.size(),
+        f.area(),
         Direction::Vertical,
         &[
             Constraint::Length(3),
@@ -57,7 +57,7 @@ pub fn draw(f: &mut Frame, app: &App) {
     draw_body(f, rows[1], app);
     draw_footer(f, rows[2], app);
     if app.show_help {
-        let full = f.size();
+        let full = f.area();
         draw_help(f, full);
     }
 }
